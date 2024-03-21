@@ -9,29 +9,23 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
-    <link rel="stylesheet" href="{{asset('css/test.css')}}">
-    <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
-    <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/test.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick-theme.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/test.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
+
 </head>
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                Zay
+            <a class="navbar-brand text-success logo h1 align-self-center" href="#">
+                TBest
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#test_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,16 +36,16 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="{{url('/about')}}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
+                            <a class="nav-link" href="{{url('/shop')}}">Shop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="{{url('/contact')}}">Contact</a>
                         </li>
 
 
@@ -88,9 +82,36 @@
                                     </form>
                                 </div>
                             </li>
+                            
                         @endguest
-                    </ul>
-                </div>
+                        
+                        <div class="navbar align-self-center d-flex">
+                            <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-fw fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#test_search">
+                                <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                            </a>
+                            <a class="nav-icon position-relative text-decoration-none" href="#">
+                                <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                                <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                            </a>
+                            <a class="nav-icon position-relative text-decoration-none" href="#">
+                                <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                                <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                            </a>
+                        </div>
+
+
+                   
+                    </ul> 
+                     
+               </div>
             </div>
         </nav>
 
@@ -98,15 +119,14 @@
             @yield('content')
         </main>
     </div>
-    @include('layout.footer')
+    @include('layouts.footer')
+   
+    <script src="{{ asset('assets/js/jquery-1.11.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/test.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
-{{-- <script> --}}
-    <script src="{{asset('js/jquery-1.11.0.min.js')}}"></script>
-    <script src="{{asset('js/jquery-migrate-1.2.1.min.js')}}"></script>
-    <script src="{{asset('js/boootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/test.js')}}"></script>
-    <script src="{{asset('js/custom.js')}}"></script>
-    <script src="{{asset('js/slick.min.js')}}"></script>  
-    <script src="{{asset('js/test.min.js')}}"></script>
+
 
 </html>
