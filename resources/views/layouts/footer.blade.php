@@ -68,11 +68,14 @@
                 </ul>
             </div>
             <div class="col-auto">
+                <form method="POST" action="{{route('subscription.store')}}" >
+                    @csrf
                 <label class="sr-only" for="subscribeEmail">Email address</label>
                 <div class="input-group mb-2">
-                    <input type="email" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                    <input type="email" class="form-control bg-dark border-light" name="subscribe" id="subscribeEmail" placeholder="Email address">
                     <div class="input-group-text btn-success text-light">Subscribe</div>
                 </div>
+                </form>
             </div>
         </div>
     </div>

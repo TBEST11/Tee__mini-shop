@@ -42,7 +42,7 @@
                             <a class="nav-link" href="{{url('/about')}}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/shop')}}">Shop</a>
+                            <a class="nav-link" href="{{route('product.index')}}">Shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/contact')}}">Contact</a>
